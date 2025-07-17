@@ -1,0 +1,98 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  .auth-container {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    text-align: center;
+  }
+  
+  .auth-container h2 {
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.6rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  
+  button {
+    width: 100%;
+    padding: 0.6rem;
+    margin: 0.6rem 0;
+    font-size: 1rem;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .logout-btn {
+    background-color: #555;
+  }
+  
+  .logout-btn:hover {
+    background-color: #333;
+  }
+  
+  .message {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+  
+  .error {
+    color: #e53935;
+  }
+  
+  .success {
+    color: #43a047;
+  }
+  
+  /* Place Profile at the top right corner */
+.top-right {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.profile-link {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.profile-link:hover {
+  color: #4CAF50;
+}
+
+/* Optional: center greeting and logout button */
+.auth-container h2 {
+  text-align: center;
+}
+
+.logout-btn {
+  display: block;
+  margin: 0 auto;
+}

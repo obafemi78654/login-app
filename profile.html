@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update Profile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Update Profile</h2>
+
+    <input type="text" id="updateName" placeholder="Full Name" />
+    <button onclick="updateProfile()">Update</button>
+    <p id="updateMessage" class="success" style="display: none;"></p>
+
+    <p><a href="homepage.html">← Back to Home</a></p>
+  </div>
+
+  <script type="module">
+    import { getAuth, onAuthStateChanged, updateProfile, updateEmail } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+    import { app } from "./firebase-config.js";
+
+    const auth = getAuth(app);
+    const nameInput = document.getElementById("updateName");
+    const emailInput = document.getElementById("updateEmail");
+    const msg = document.getElementById("updateMessage");
+
+    // Load user data
+    onAuthStateChanged(auth, (user) => {
+      if (!user) return window.location.href = "homepage.html";
+      nameInput.value = user.displayName || "";
+    });
+
+    // Update profile
+    window.updateProfile = async function () {
+      const user = auth.currentUser;
+      const name = nameInput.value;
+
+      try {
+        await updateProfile(user, { displayName: name });
+        msg.textContent = "Update successful!";
+        msg.style.display = "block";
+
+        setTimeout(() => {
+          msg.style.display = "none";
+        }, 5000); // hide after 5 seconds
+      } catch (err) {
+        msg.textContent = err.message;
+        msg.style.display = "block";
+        msg.className = "error";
+      }
+    };
+  </script>
+</body>
+</html>
